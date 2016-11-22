@@ -22,4 +22,10 @@ wpApp.config( function( $stateProvider, $urlRouterProvider){
 		controller: 'ListCtrl',
 		templateUrl: appInfo.template_directory + 'templates/list.html'
 	})
-})
+});
+
+wpApp.filter('to_trusted', ['$sce', function($sce){
+	return function( text ){
+		return $sce.trustAsHtml( text );
+	}
+}]);
