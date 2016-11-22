@@ -5,3 +5,11 @@ wpApp.factory('Post', function($resource){
 		ID: '@id'
 	})
 });
+
+wpApp.controller('ListCtrl', ['$scope', 'Posts', function ($scope, Posts){
+	console.log('ListCtrl');
+	$scope.page_title = "Blog Listing";
+	Posts.query(function(res){
+		$scope.posts = res;
+	})
+}])
